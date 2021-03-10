@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+      "minecraft:smooth_stone",
+      "minecraft:stone_slab",
+      "minecraft:stone_button",
+      "minecraft:infested_stone",
+      "minecraft:smooth_stone_slab",
+      "minecraft:stone_stairs",
+      "minecraft:stone_pressure_plate"
+    ]
+  }

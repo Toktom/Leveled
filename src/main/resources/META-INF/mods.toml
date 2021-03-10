@@ -1,0 +1,14 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT License"
+
+[[mods]]
+modId="leveled"
+version="1.0"
+displayName="Leveled"
+#logoFile="toktomleveld.png"
+credits="Thanks to my friend PvM Dragonic with some basic help with Java and OOP and thanks to FeldmannJR with helping me out with the the basic skills system."
+authors="Toktom"
+description='''
+A mod that brings a leveling system to vanilla minecraft.
+'''
