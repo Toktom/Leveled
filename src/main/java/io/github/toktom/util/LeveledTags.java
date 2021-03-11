@@ -7,7 +7,8 @@ import net.minecraft.tags.ITag;
 import net.minecraft.util.ResourceLocation;
 
 public class LeveledTags
-{	public static final class Blocks
+{
+	public static final class Blocks
 	{
 		public static final ITag.INamedTag<Block> OAK_BLOCKS = mod("oak_blocks");
 		public static final ITag.INamedTag<Block> SPRUCE_BLOCKS = mod("spruce_blocks");
@@ -32,9 +33,9 @@ public class LeveledTags
 
 		private static ITag.INamedTag<Block> mod(String path)
 		{
-			
+
 			return BlockTags.createOptional(new ResourceLocation(Leveled.MOD_ID, path));
-			
+
 		}
 	}
 }

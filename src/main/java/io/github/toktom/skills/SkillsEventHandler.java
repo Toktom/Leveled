@@ -30,7 +30,7 @@ public class SkillsEventHandler
 	public void lowLevelMessage(PlayerEntity player)
 	{
 		SkillsPlayer skills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
-		player.sendMessage(new StringTextComponent("Your " + skills.getSkill(skill).getName() + " level is to low.").withStyle(TextFormatting.RED),
-				player.getUUID());
+		player.sendMessage(new StringTextComponent("Your " + skills.getSkill(skill).getName() + " level is to low.")
+				.withStyle(TextFormatting.RED), player.getUUID());
 	}
 }

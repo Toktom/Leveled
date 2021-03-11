@@ -55,6 +55,7 @@ public class SkillsManager
 		SkillsPlayer skills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
 		return skills.getSkill(skill).getExp();
 	}
+
 	public String resetSkill(PlayerEntity player, Skill skill)
 	{
 		SkillsPlayer skills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);

@@ -55,7 +55,8 @@ public class SkillsIndividualCommand
 		Entity entity = commandContext.getSource().getEntity();
 		if (entity != null)
 		{
-			commandContext.getSource().getServer().getPlayerList().broadcastMessage(finalText, ChatType.CHAT, entity.getUUID());
+			commandContext.getSource().getServer().getPlayerList().broadcastMessage(finalText, ChatType.CHAT,
+					entity.getUUID());
 		} else
 		{
 			commandContext.getSource().getServer().getPlayerList().broadcastMessage(finalText, ChatType.SYSTEM,

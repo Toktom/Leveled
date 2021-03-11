@@ -20,5 +20,4 @@ public class Skill
 		this.id = id;
 	}
 
-
 }
