@@ -23,7 +23,7 @@ public class CraftingSkillEventHandler extends SkillsEventHandler
 	}
 
 	@SuppressWarnings("resource")
-	public void craftingItem(PlayerEvent.ItemCraftedEvent event, Item item, long level, long exp,
+	public void onItemCrafted(PlayerEvent.ItemCraftedEvent event, Item item, long level, long exp,
 			SkillsPlayerEntry skill, long sec_level, long sec_exp)
 	{
 		PlayerEntity player = event.getPlayer();
@@ -46,7 +46,7 @@ public class CraftingSkillEventHandler extends SkillsEventHandler
 
 	@SuppressWarnings("resource")
 	@SubscribeEvent
-	public void craftingWoodcutting(PlayerEvent.ItemCraftedEvent event)
+	public void craftingWoodcuttingItem(PlayerEvent.ItemCraftedEvent event)
 	{
 		PlayerEntity player = event.getPlayer();
 		SkillsPlayer skills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
@@ -54,8 +54,8 @@ public class CraftingSkillEventHandler extends SkillsEventHandler
 
 		if(!event.getPlayer().getCommandSenderWorld().isClientSide)
 		{
-			craftingItem(event, Items.OAK_PLANKS, 2, 10, wc, 5, 1);
-			craftingItem(event, Items.STONE_AXE, 2, 10, wc, 5, 1);
+			onItemCrafted(event, Items.OAK_PLANKS, 2, 10, wc, 5, 1);
+			onItemCrafted(event, Items.STONE_AXE, 2, 10, wc, 5, 1);
 		}	
 	}
 }

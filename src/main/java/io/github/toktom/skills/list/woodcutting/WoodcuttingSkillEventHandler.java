@@ -28,7 +28,7 @@ public class WoodcuttingSkillEventHandler extends SkillsEventHandler
 		super(skill);
 	}
 
-	public void onBlockBreak(BlockEvent.BreakEvent event, Block block, int level, int xp)
+	private void onBlockBreak(BlockEvent.BreakEvent event, Block block, int level, int xp)
 	{
 		PlayerEntity player = event.getPlayer();
 		if (event.getState().getBlock().equals(block))
@@ -51,7 +51,8 @@ public class WoodcuttingSkillEventHandler extends SkillsEventHandler
 		}
 	}
 
-	public void onBlockBreakGroup(BlockEvent.BreakEvent event, ITag<Block> group, int level, int xp)
+	@SuppressWarnings("unused")
+	private void onBlockBreakGroup(BlockEvent.BreakEvent event, ITag<Block> group, int level, int xp)
 	{
 
 		PlayerEntity player = event.getPlayer();
@@ -76,7 +77,7 @@ public class WoodcuttingSkillEventHandler extends SkillsEventHandler
 		}
 	}
 
-	public void onBlockBreakGroupZero(BlockEvent.BreakEvent event, ITag<Block> group, int level)
+	private void onBlockBreakGroupZero(BlockEvent.BreakEvent event, ITag<Block> group, int level)
 	{
 		PlayerEntity player = event.getPlayer();
 		if (event.getState().getBlock().is(group))
@@ -98,7 +99,7 @@ public class WoodcuttingSkillEventHandler extends SkillsEventHandler
 		}
 	}
 
-	public void onStripping(PlayerInteractEvent.RightClickBlock event, Block block, int level, int xp)
+	private void onStripping(PlayerInteractEvent.RightClickBlock event, Block block, int level, int xp)
 	{
 
 		BlockState blockstate = event.getWorld().getBlockState(event.getPos());
@@ -186,7 +187,7 @@ public class WoodcuttingSkillEventHandler extends SkillsEventHandler
 	}
 
 	@SubscribeEvent
-	public void onWoodcuttingStripping(PlayerInteractEvent.RightClickBlock event)
+	public void woodcuttingOnStripping(PlayerInteractEvent.RightClickBlock event)
 	{
 		World world = event.getPlayer().getCommandSenderWorld();
 		if (!world.isClientSide)
