@@ -7,9 +7,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.ItemFishedEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.eventbus.EventAccessTransformer;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class FishingSkillEventHandler extends SkillsEventHandler
@@ -48,6 +45,7 @@ public class FishingSkillEventHandler extends SkillsEventHandler
 		}
 	}
 
+	@SuppressWarnings("resource")
 	@SubscribeEvent
 	public void fishingFishCatchedEvent(ItemFishedEvent event)
 	{
