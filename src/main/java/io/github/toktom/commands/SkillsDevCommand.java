@@ -17,7 +17,7 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 
-public class SkillsIndividualCommand
+public class SkillsDevCommand
 {
 
 	public static void register(CommandDispatcher<CommandSource> dispatcher)
@@ -29,15 +29,21 @@ public class SkillsIndividualCommand
 
 			LiteralArgumentBuilder<CommandSource> skillCommand = Commands.literal("skills")
 					.requires((commandSource) -> commandSource.hasPermission(1))
-					.then(Commands.literal(skill.getId()).then(Commands.literal("level")
-							.executes(commandContext -> sendMessage(commandContext,
-									String.valueOf(manager
-											.getLevel((PlayerEntity) commandContext.getSource().getEntity(), skill)))))
-							.then(Commands.literal("exp")
+					.then(Commands.literal(skill.getId()).then(Commands.literal("up")
+							.executes(commandContext -> manager.setLevel(
+									(PlayerEntity) commandContext.getSource().getEntity(), skill,
+									manager.getLevel((PlayerEntity) commandContext.getSource().getEntity(), skill)
+											+ 1)))
+							.then(Commands.literal("down")
+									.executes(commandContext -> manager.setLevel(
+											(PlayerEntity) commandContext.getSource().getEntity(), skill,
+											manager.getLevel((PlayerEntity) commandContext.getSource().getEntity(),
+													skill) - 1)))
+							.then(Commands.literal("reset")
 									.executes(commandContext -> sendMessage(commandContext,
-											String.valueOf(manager.getExp(
-													(PlayerEntity) commandContext.getSource().getEntity(), skill)))))
-							.executes(commandContext -> sendMessage(commandContext, "Insert level or exp")));
+											manager.resetSkill((PlayerEntity) commandContext.getSource().getEntity(),
+													skill))))
+							.executes(commandContext -> sendMessage(commandContext, "Insert up, down or reset")));
 			dispatcher.register(skillCommand);
 		}
 	}
@@ -46,7 +52,7 @@ public class SkillsIndividualCommand
 	{
 		TranslationTextComponent finalText = new TranslationTextComponent("chat.type.announcement",
 				commandContext.getSource().getDisplayName(),
-				new StringTextComponent(message).withStyle(TextFormatting.GOLD));
+				new StringTextComponent(message).withStyle(TextFormatting.DARK_PURPLE));
 
 		Entity entity = commandContext.getSource().getEntity();
 		if (entity != null)

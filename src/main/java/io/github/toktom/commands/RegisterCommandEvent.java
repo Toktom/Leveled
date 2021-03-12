@@ -13,5 +13,6 @@ public class RegisterCommandEvent
 		CommandDispatcher<CommandSource> commandDispatcher = event.getDispatcher();
 		SkillsIndividualCommand.register(commandDispatcher);
 		SkillsStatsCommand.register(commandDispatcher);
+		SkillsDevCommand.register(commandDispatcher);
 	}
 }

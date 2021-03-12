@@ -50,10 +50,24 @@ public class SkillsManager
 		return skills.getSkill(skill).getLevel();
 	}
 
+	public int setLevel(PlayerEntity player, Skill skill, long level)
+	{
+		SkillsPlayer skills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
+		skills.getSkill(skill).setLevel(level);
+		return 1;
+	}
+
 	public long getExp(PlayerEntity player, Skill skill)
 	{
 		SkillsPlayer skills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
 		return skills.getSkill(skill).getExp();
+	}
+
+	public int setExp(PlayerEntity player, Skill skill, long exp)
+	{
+		SkillsPlayer skills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
+		skills.getSkill(skill).setExp(exp);
+		return 1;
 	}
 
 	public String resetSkill(PlayerEntity player, Skill skill)
