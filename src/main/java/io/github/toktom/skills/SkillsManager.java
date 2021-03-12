@@ -5,9 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import io.github.toktom.skills.list.building.BuildingSkill;
+import io.github.toktom.skills.list.cooking.CookingSkill;
 import io.github.toktom.skills.list.crafting.CraftingSkill;
+import io.github.toktom.skills.list.excavation.ExcavationSkill;
 import io.github.toktom.skills.list.farming.FarmingSkill;
 import io.github.toktom.skills.list.fishing.FishingSkill;
+import io.github.toktom.skills.list.masonary.MasonarySkill;
+import io.github.toktom.skills.list.mining.MiningSkill;
+import io.github.toktom.skills.list.smithing.SmithingSkill;
 import io.github.toktom.skills.list.woodcutting.WoodcuttingSkill;
 import io.github.toktom.skills.storage.CapabilitySkills;
 import net.minecraft.entity.player.PlayerEntity;
@@ -85,5 +90,10 @@ public class SkillsManager
 		this.addSkill(new BuildingSkill());
 		this.addSkill(new FishingSkill());
 		this.addSkill(new FarmingSkill());
+		this.addSkill(new ExcavationSkill());
+		this.addSkill(new SmithingSkill());
+		this.addSkill(new CookingSkill());
+		this.addSkill(new MiningSkill());
+		this.addSkill(new MasonarySkill());
 	}
 }
