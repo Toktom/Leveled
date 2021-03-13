@@ -35,11 +35,12 @@ public class CraftingSkillEventHandler extends SkillsEventHandler
 				skill.addExp(sec_exp);
 			} else
 			{
-				if(!event.getPlayer().getCommandSenderWorld().isClientSide) {
-					event.getPlayer().getCommandSenderWorld().playSound((PlayerEntity) null, event.getPlayer().blockPosition(),
-							SoundEvents.ANVIL_LAND, SoundCategory.BLOCKS, 1.0F, 1f);
+				if (!event.getPlayer().getCommandSenderWorld().isClientSide)
+				{
+					event.getPlayer().getCommandSenderWorld().playSound((PlayerEntity) null,
+							event.getPlayer().blockPosition(), SoundEvents.ANVIL_LAND, SoundCategory.BLOCKS, 1.0F, 1f);
 					lowLevelMessage(event.getPlayer());
-				}	
+				}
 			}
 		}
 	}
@@ -52,10 +53,10 @@ public class CraftingSkillEventHandler extends SkillsEventHandler
 		SkillsPlayer skills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
 		SkillsPlayerEntry wc = skills.getSkill(new WoodcuttingSkill());
 
-		if(!event.getPlayer().getCommandSenderWorld().isClientSide)
+		if (!event.getPlayer().getCommandSenderWorld().isClientSide)
 		{
 			onItemCrafted(event, Items.OAK_PLANKS, 2, 10, wc, 5, 1);
 			onItemCrafted(event, Items.STONE_AXE, 2, 10, wc, 5, 1);
-		}	
+		}
 	}
 }
