@@ -9,6 +9,7 @@ import io.github.toktom.client.gui.SkillsScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
+import net.minecraft.entity.player.PlayerEntity;
 
 public class SkillsGuiCommand
 {
@@ -24,7 +25,7 @@ public class SkillsGuiCommand
 
 	static int run(CommandContext<CommandSource> commandContext) throws CommandSyntaxException
 	{
-		Minecraft.getInstance().setScreen(new SkillsScreen());
+		Minecraft.getInstance().setScreen(new SkillsScreen((PlayerEntity) commandContext.getSource().getEntity()));
 		return 1;
 	}
 }
