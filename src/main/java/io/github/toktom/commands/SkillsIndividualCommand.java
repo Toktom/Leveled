@@ -27,7 +27,7 @@ public class SkillsIndividualCommand
 		for (Skill skill : manager.getSkills())
 		{
 
-			LiteralArgumentBuilder<CommandSource> skillCommand = Commands.literal("skills")
+			LiteralArgumentBuilder<CommandSource> skillIndividualCommand = Commands.literal("skills")
 					.requires((commandSource) -> commandSource.hasPermission(1))
 					.then(Commands.literal(skill.getId()).then(Commands.literal("level")
 							.executes(commandContext -> sendMessage(commandContext,
@@ -38,7 +38,7 @@ public class SkillsIndividualCommand
 											String.valueOf(manager.getExp(
 													(PlayerEntity) commandContext.getSource().getEntity(), skill)))))
 							.executes(commandContext -> sendMessage(commandContext, "Insert level or exp")));
-			dispatcher.register(skillCommand);
+			dispatcher.register(skillIndividualCommand);
 		}
 	}
 

@@ -14,5 +14,6 @@ public class RegisterCommandEvent
 		SkillsIndividualCommand.register(commandDispatcher);
 		SkillsStatsCommand.register(commandDispatcher);
 		SkillsDevCommand.register(commandDispatcher);
+		SkillsGuiCommand.register(commandDispatcher);
 	}
 }

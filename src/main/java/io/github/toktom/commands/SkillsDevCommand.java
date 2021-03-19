@@ -27,7 +27,7 @@ public class SkillsDevCommand
 		for (Skill skill : manager.getSkills())
 		{
 
-			LiteralArgumentBuilder<CommandSource> skillCommand = Commands.literal("skills")
+			LiteralArgumentBuilder<CommandSource> skillDevCommand = Commands.literal("skills")
 					.requires((commandSource) -> commandSource.hasPermission(1))
 					.then(Commands.literal(skill.getId()).then(Commands.literal("up")
 							.executes(commandContext -> manager.setLevel(
@@ -44,7 +44,7 @@ public class SkillsDevCommand
 											manager.resetSkill((PlayerEntity) commandContext.getSource().getEntity(),
 													skill))))
 							.executes(commandContext -> sendMessage(commandContext, "Insert up, down or reset")));
-			dispatcher.register(skillCommand);
+			dispatcher.register(skillDevCommand);
 		}
 	}
 
