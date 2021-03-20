@@ -103,7 +103,9 @@ public class SkillsScreen extends Screen
 					1);
 			SkillsScreen.drawString(matrixStack, font, skill_exp, relX + 65 + (column * 125), relY + 2 * (row * 15), 1);
 			SkillsScreen.drawString(matrixStack, font, skill_progress, relX + 10 + (column * 125),
-					relY + 2 * (row * 15) + 6, 1);
+					relY + 2 * (row * 15) + 7, 1);
+			SkillsScreen.drawString(matrixStack, font, skill_progress, relX + 10 + (column * 125),
+					relY + 2 * (row * 15) + 8, 1);
 
 			i++;
 		}
