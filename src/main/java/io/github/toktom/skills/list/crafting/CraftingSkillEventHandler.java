@@ -27,7 +27,7 @@ public class CraftingSkillEventHandler extends SkillsEventHandler
 			SkillsPlayerEntry skill, long sec_level, long sec_exp)
 	{
 		PlayerEntity player = event.getPlayer();
-		if (item.getItem().equals(item))
+		if (event.getCrafting().getItem().equals(item))
 		{
 			if (this.getLevel(player) >= level || skill.getLevel() >= sec_level)
 			{
@@ -35,11 +35,11 @@ public class CraftingSkillEventHandler extends SkillsEventHandler
 				skill.addExp(sec_exp);
 			} else
 			{
-				if (!event.getPlayer().getCommandSenderWorld().isClientSide)
+				if (!player.getCommandSenderWorld().isClientSide)
 				{
-					event.getPlayer().getCommandSenderWorld().playSound((PlayerEntity) null,
-							event.getPlayer().blockPosition(), SoundEvents.ANVIL_LAND, SoundCategory.BLOCKS, 1.0F, 1f);
-					lowLevelMessage(event.getPlayer());
+					player.getCommandSenderWorld().playSound((PlayerEntity) null, player.blockPosition(),
+							SoundEvents.ANVIL_LAND, SoundCategory.BLOCKS, 1.0F, 1f);
+					lowLevelMessage(player);
 				}
 			}
 		}
@@ -53,7 +53,7 @@ public class CraftingSkillEventHandler extends SkillsEventHandler
 		SkillsPlayer skills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
 		SkillsPlayerEntry wc = skills.getSkill(new WoodcuttingSkill());
 
-		if (!event.getPlayer().getCommandSenderWorld().isClientSide)
+		if (!player.getCommandSenderWorld().isClientSide)
 		{
 			onItemCrafted(event, Items.OAK_PLANKS, 2, 10, wc, 5, 1);
 			onItemCrafted(event, Items.STONE_AXE, 2, 10, wc, 5, 1);

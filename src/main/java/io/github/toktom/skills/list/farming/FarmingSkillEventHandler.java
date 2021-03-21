@@ -30,9 +30,9 @@ public class FarmingSkillEventHandler extends SkillsEventHandler
 
 			} else
 			{
-				if (!event.getPlayer().getCommandSenderWorld().isClientSide())
+				if (!player.getCommandSenderWorld().isClientSide())
 				{
-					event.getPlayer().getCommandSenderWorld().playSound((PlayerEntity) null, event.getPos(),
+					player.getCommandSenderWorld().playSound((PlayerEntity) null, event.getPos(),
 							SoundEvents.ANVIL_LAND, SoundCategory.BLOCKS, 1.0F, 1f);
 					lowLevelMessage(player);
 				}
@@ -104,6 +104,7 @@ public class FarmingSkillEventHandler extends SkillsEventHandler
 			onBoneMeal(event);
 		}
 	}
+
 	@SubscribeEvent
 	public void farmingOnCropBreak(BlockEvent.BreakEvent event)
 	{
@@ -113,7 +114,7 @@ public class FarmingSkillEventHandler extends SkillsEventHandler
 			onCropBreak(event, Blocks.POTATOES, 2, 20);
 		}
 	}
-	
+
 	@SubscribeEvent
 	public void farmingOnCropPlaced(BlockEvent.EntityPlaceEvent event)
 	{

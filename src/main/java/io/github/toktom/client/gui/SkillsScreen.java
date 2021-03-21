@@ -97,7 +97,7 @@ public class SkillsScreen extends Screen
 			IFormattableTextComponent skill_exp = new StringTextComponent("Exp: ").withStyle(TextFormatting.WHITE)
 					.append(new StringTextComponent(exp).withStyle(TextFormatting.DARK_GREEN));
 
-			SkillsScreen.drawString(matrixStack, font, skill_name, relX + 10 + (column * 125), relY + (row * 30) - 15,
+			SkillsScreen.drawString(matrixStack, font, skill_name, relX + 10 + (column * 125), relY + (row * 30) - 13,
 					1);
 			SkillsScreen.drawString(matrixStack, font, skill_level, relX + 10 + (column * 125), relY + 2 * (row * 15),
 					1);

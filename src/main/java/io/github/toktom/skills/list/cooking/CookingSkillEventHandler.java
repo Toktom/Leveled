@@ -32,11 +32,11 @@ public class CookingSkillEventHandler extends SkillsEventHandler
 				}
 			} else
 			{
-				if (!event.getPlayer().getCommandSenderWorld().isClientSide)
+				if (!player.getCommandSenderWorld().isClientSide)
 				{
-					event.getPlayer().getCommandSenderWorld().playSound((PlayerEntity) null,
-							event.getPlayer().blockPosition(), SoundEvents.ANVIL_LAND, SoundCategory.BLOCKS, 1.0F, 1f);
-					lowLevelMessage(event.getPlayer());
+					player.getCommandSenderWorld().playSound((PlayerEntity) null, player.blockPosition(),
+							SoundEvents.ANVIL_LAND, SoundCategory.BLOCKS, 1.0F, 1f);
+					lowLevelMessage(player);
 				}
 			}
 		}
