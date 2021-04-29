@@ -21,4 +21,5 @@ public class CapabilityAttachEventHandler
 			event.addCapability(new ResourceLocation("leveled:skills_storage"), new CapabilityProviderEntities());
 		}
 	}
+	
 }

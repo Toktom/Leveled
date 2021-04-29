@@ -11,6 +11,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -39,12 +41,14 @@ public class CraftingSkillEventHandler extends SkillsEventHandler
 				{
 					player.getCommandSenderWorld().playSound((PlayerEntity) null, player.blockPosition(),
 							SoundEvents.ANVIL_LAND, SoundCategory.BLOCKS, 1.0F, 1f);
-					lowLevelMessage(player);
+				
+					player.sendMessage(new StringTextComponent("Your crafting level is to low. Therefore you gained 0 exp.")
+							.withStyle(TextFormatting.RED), player.getUUID());
 				}
 			}
 		}
 	}
-
+	
 	@SuppressWarnings("resource")
 	@SubscribeEvent
 	public void craftingWoodcuttingItem(PlayerEvent.ItemCraftedEvent event)

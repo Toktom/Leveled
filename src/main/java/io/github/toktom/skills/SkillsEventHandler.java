@@ -4,6 +4,8 @@ import io.github.toktom.skills.storage.CapabilitySkills;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class SkillsEventHandler
 {
@@ -33,4 +35,15 @@ public class SkillsEventHandler
 		player.sendMessage(new StringTextComponent("Your " + skills.getSkill(skill).getName() + " level is to low.")
 				.withStyle(TextFormatting.RED), player.getUUID());
 	}
+	
+	@SubscribeEvent
+	public void onPlayerDeath(PlayerEvent.Clone event)
+	{
+		PlayerEntity player = event.getPlayer();
+		SkillsPlayer newSkills = player.getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
+		SkillsPlayer oldSkills = event.getOriginal().getCapability(CapabilitySkills.CAPABILITY_SKILLS).orElse(null);
+		newSkills.setSkills(oldSkills.getSkills());
+	
+	}
+	
 }
