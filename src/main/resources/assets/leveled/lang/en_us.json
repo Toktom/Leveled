@@ -1,3 +1,6 @@
 {
-    "screen.leveled.skills": "Skills stats"
+    "screen.leveled.skills": "Skills stats",
+    
+    "key.category.leveled" : "Leveled",
+    "key.leveled.gui_key" : "Skills Screen Key"
 }
